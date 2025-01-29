@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matheus Consultoria Fitness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('file:///C:/Users/Pedro%20H/Downloads/FOTO%20TURMA.jpg') center/cover;
+            padding: 2rem;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: #ff4444;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .cta-button {
+            background: #ff4444;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background: #ff2222;
+        }
+
+        .about {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: #262626;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+        }
+
+        .benefit-card {
+            background: #262626;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .benefit-card img {
+            width: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .pricing {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: #ff4444;
+        }
+
+        .contact {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">Matheus Fitness</h1>
+        <h2>Sua Evolução Começa Aqui</h2>
+        <p>Consultoria personalizada para atingir seus objetivos</p>
+        <button class="cta-button">Comece Sua Transformação!</button>
+    </header>
+
+    <section class="about">
+        <h2>Sobre Mim</h2>
+        <p>Aos 22 anos, transformei minha paixão por fitness em ciência. Com certificação internacional e experiência prática, vou te ajudar a alcançar resultados reais!</p>
+    </section>
+
+    <section class="benefits">
+        <div class="benefit-card">
+            <h3>Plano Individualizado</h3>
+            <p>Treinos adaptados ao seu biótipo e objetivos</p>
+        </div>
+        <div class="benefit-card">
+            <h3>Acompanhamento 24h</h3>
+            <p>Suporte constante via aplicativo</p>
+        </div>
+        <div class="benefit-card">
+            <h3>Resultados Garantidos</h3>
+            <p>Metodologia baseada em evidências científicas</p>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <h2>Planos Acessíveis</h2>
+        <div class="benefits">
+            <div class="benefit-card">
+                <h3>Iniciante</h3>
+                <p>R$199/mês</p>
+                <ul>
+                    <li>2 treinos semanais</li>
+                    <li>Acompanhamento básico</li>
+                </ul>
+            </div>
+            <div class="benefit-card">
+                <h3>Premium</h3>
+                <p>R$299/mês</p>
+                <ul>
+                    <li>4 treinos semanais</li>
+                    <li>Dieta personalizada</li>
+                    <li>Suporte 24h</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Vamos Começar?</h2>
+        <form id="contact-form" onsubmit="enviarWhatsApp(event)">
+            <input type="text" id="nome" placeholder="Seu Nome" required>
+            <input type="email" id="email" placeholder="Seu Melhor Email" required>
+            <input type="tel" id="telefone" placeholder="Seu WhatsApp" required>
+            <textarea id="objetivos" placeholder="Conte sobre seus objetivos..." rows="4" required></textarea>
+            <button type="submit" class="cta-button">Enviar Agora</button>
+        </form>
+    </section>
+
+    <script>
+        function enviarWhatsApp(event) {
+            event.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const objetivos = document.getElementById('objetivos').value;
+
+            const mensagem = `*Nova Mensagem do Site*%0A%0A
+*Nome:* ${nome}%0A
+*Email:* ${email}%0A
+*Telefone:* ${telefone}%0A
+*Objetivos:* ${objetivos}`;
+
+            window.open(`https://wa.me/5586999757756?text=${encodeURIComponent(mensagem)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
